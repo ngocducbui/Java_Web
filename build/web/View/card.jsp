@@ -16,7 +16,9 @@
     if (cart_list != null) {
         SanPhamDAO dao = new SanPhamDAO();
         cartProduct = dao.getCartProduct(cart_list);
+        double total = dao.getTotalPrice(cart_list);
         request.setAttribute("cart_list", cart_list);
+        request.setAttribute("total", total);
     }
 %>
 
@@ -44,9 +46,12 @@
         <div class="flex-grow-1">
             <div class="container my-3">
                 <div class="d-flex py-3">
-                    <!--                    <h3> Total Price: 1000000 VNĐ</h3>
+                    <!--     <h3> Total Price: 1000000 VNĐ</h3>
                                         <a class="mx-3 btn-primary" href="#">Checkout</a>-->
-                    <div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
+                    <div class="d-flex py-3">
+                        <h3>Total Price: $ ${(total>0)?total:0} </h3> 
+                        <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a>
+                    </div>
                 </div>
                 <table class="table table-light">
                     <thead>
@@ -64,7 +69,7 @@
                                 for (Cart c : cartProduct) {%>
 
                         <tr class="align-middle ">
-                            <td class="col-md-3" style="width: 100%"><%= c.getTenSanPham()%></td>
+                            <td class="col-md-3" ><%= c.getTenSanPham()%></td>
                             <td class="col-md-3"><%= c.getTheLoai().getTenTheLoai()%></td>
                             <td class="col-md-2"><%= c.getGiaBan()%></td>
                             <td class="col-md-2">
@@ -93,9 +98,8 @@
 
 
 
-        <footer class="bg-light text-center py-3">
-            <jsp:include page="footer.jsp"></jsp:include>
-        </footer>
+<!--        <footer class="bg-light text-center py-3">
+        </footer>-->
 
     </body>
 </html>

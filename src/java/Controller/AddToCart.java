@@ -67,24 +67,25 @@ public class AddToCart extends HttpServlet {
             Cart cart = new Cart();
             cart.setMaSanPham(id);
             cart.setQuantity(1);
-            
+
             HttpSession session = request.getSession();
             ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-            
+
             if (cart_list == null) {
                 cartList.add(cart);
                 session.setAttribute("cart-list", cartList);
-                out.print("session added");
+                response.sendRedirect("View/index.jsp");
+
             } else {
                 cartList = cart_list;
                 boolean exist = false;
                 for (Cart ca : cart_list) {
                     if (ca.getMaSanPham().equals(id)) {
-                        exist=true;
+                        exist = true;
                         out.print("da ton tai");
                     }
                 }
-                if(!exist){
+                if (!exist) {
                     cartList.add(cart);
                     response.sendRedirect("View/index.jsp");
                 }

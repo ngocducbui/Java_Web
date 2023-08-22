@@ -95,6 +95,32 @@ public class SanPhamDAO implements DAOInterface<SanPham> {
         return products;
     }
 
+    public double getTotalPrice(ArrayList<Cart> cartList) {
+        double sum = 0;
+        try {
+            if (cartList.size() > 0) {
+
+                for (Cart item : cartList) {
+                    final Connection con = JDBCUtil.getConnection();
+
+                    String query = "SELECT giaban from sanpham WHERE masanpham=?";
+                    final PreparedStatement st = con.prepareStatement(query);
+                    st.setString(1, item.getMaSanPham());
+                    final ResultSet rs = st.executeQuery();
+                    while (rs.next()) {
+                        sum += rs.getDouble("giaban") * item.getQuantity();
+
+                    }
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sum;
+    }
+
     @Override
     public SanPham selectById(SanPham t) {
         SanPham ketQua = null;
