@@ -39,43 +39,11 @@
                     <input class="form-control me-2" type="search" placeholder="Nội Dung Tìm Kiếm" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Tìm</button>
 
-                    <%
-                        Object obj = session.getAttribute("khachHang");
-                        KhachHang kh = null;
-                        if (obj != null) {
-                            kh = (KhachHang) obj;
-                        }
-                        if (kh == null) {
-                    %>
 
-                    <%} else {%>
-
-                    <!-- Example single danger button -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 bg-infor ">
-                        <li class="nav-item dropdown dropstart"><a
-                                class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false"> Tài khoản</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Đơn hàng của tôi</a></li>
-                                <li><a class="dropdown-item" href="#">Thông báo</a></li>
-                                <li><a class="dropdown-item" href="#">Thay đổi thông tin</a></li>
-                                <li><a class="dropdown-item" href="doimatkhau.jsp">Đổi mật khẩu</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="signout">Thoát tài khoản</a></li>
-                            </ul></li>
-                    </ul>				
-
-                    <!--                        <div class="row text-center" style="margin-left:3em">
-                                                <b class="row" style="white-space: nowrap ;margin:auto">Xin Chào <%= kh.getTenDangNhap()%></b>
-                                                <a class="row"  style="white-space: nowrap ;margin:auto;text-decoration: none" href="signout">
-                                                    Đăng Xuất
-                                                </a>
-                                            </div>-->
-                    <%}%>
                 </form>
             </div>
-            <div class="  col-md-4 right ">
-                <a href="<%=url%>/View/card.jsp">
+            <div class="  col-md-4 right">
+                <a href="<%=url%>/View/card.jsp"">
                     <i class="fas fa-shopping-cart align-middle  " style="margin-right: 3%;  font-size: 25px; color:blue">
                         <p class="badge badge-secondary align-middle text-center px-1" style="color:red; background-color: #ff0000;color: #ffffff;font-size: 13px;  margin:auto">
                             ${cart_list.size()}
@@ -83,9 +51,56 @@
                     </i> 
                 </a>
 
-                <a class="btn btn-primary ml-4 " style="white-space: nowrap;" href="<%=url%>/View/signin.jsp">
+                <%
+                    Object obj = session.getAttribute("khachHang");
+                    KhachHang kh = null;
+                    if (obj != null) {
+                        kh = (KhachHang) obj;
+                    }
+                    if (kh == null) {
+                %>
+                <a id="dangnhap" class="btn btn-primary ml-4 " style="white-space: nowrap;" href="<%=url%>/View/signin.jsp">
                     Đăng Nhập
                 </a>
+                <%} else {%>
+                <a id="dangnhap" class="btn btn-dark ml-4 " style="white-space: nowrap;" href="signout">
+                    Đăng Xuất
+                </a>
+
+
+                <!--                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        const myElement = document.getElementById("dangnhap");
+                                        myElement.style.display = "none";
+                                    });
+                                </script>-->
+                <!-- Example single danger button -->
+                <!--                <div class="right">
+                                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 bg-infor ">
+                                        <li class="nav-item dropdown dropstart"><a
+                                                class="nav-link dropdown-toggle" href="#" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false"> Tài khoản</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Đơn hàng của tôi</a></li>
+                                                <li><a class="dropdown-item" href="#">Thông báo</a></li>
+                                                <li><a class="dropdown-item" href="#">Thay đổi thông tin</a></li>
+                                                <li><a class="dropdown-item" href="doimatkhau.jsp">Đổi mật khẩu</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="signout">Thoát tài khoản</a></li>
+                                            </ul></li>
+                                    </ul>
+                                </div>-->
+
+                <!--                        <div class="row text-center" style="margin-left:3em">
+                                            <b class="row" style="white-space: nowrap ;margin:auto">Xin Chào <%= kh.getTenDangNhap()%></b>
+                                            <a class="row"  style="white-space: nowrap ;margin:auto;text-decoration: none" href="signout">
+                                                Đăng Xuất
+                                            </a>
+                                        </div>-->
+                <%}%>
+
+
+
             </div>
 
         </div>

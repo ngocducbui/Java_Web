@@ -73,13 +73,14 @@
                             <td class="col-md-3"><%= c.getTheLoai().getTenTheLoai()%></td>
                             <td class="col-md-2"><%= c.getGiaBan()%></td>
                             <td class="col-md-2">
-                                <form action="order-now" method="post" class="form-inline">
+                                <form action="/TestWeb/Order" method="post" class="form-inline d-flex  align-middle">
                                     <input type="hidden" name="id" value="<%= c.getMaSanPham()%>" class="form-input">
                                     <div class="form-group d-flex justify-content-between" style="width: 50%">
-                                        <a class="btn btn-sm btn-decre" style="color:blue ;--bs-btn-padding-y: 0.5rem" href=""> <i class="fas fa-minus-square" ></i></a>
+                                        <a class="btn btn-sm btn-decre" style="color:blue ;--bs-btn-padding-y: 0.5rem ; font-size: 15px"  href=""> <i class="fas fa-minus-square" ></i></a>
                                         <input type="text" name="quantity" class="form-control"  value="1" readonly " > 
-                                        <a class="btn btn-sm btn-incre" style="color:blue ;--bs-btn-padding-y: 0.5rem" href=""><i class="fas fa-plus-square"></i></a>
+                                        <a class="btn btn-sm btn-incre" style="color:blue ;--bs-btn-padding-y: 0.5rem;font-size: 15px" href=""><i class="fas fa-plus-square"></i></a>
                                     </div>
+                                    <button type="submit" class="btn btn-sm btn-primary setbutton" style=" justify-content: center; font-size: 13px;padding-bottom: 0px;padding-top: 0px; ">Buy</button>
                                 </form>
                             </td>
                             <td class="col-md-2"><a href="/TestWeb/RemoveCart?id=<%=c.getMaSanPham()%>" class="btn btn-sm btn-danger">Remove</a></td>
