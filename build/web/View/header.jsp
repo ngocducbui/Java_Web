@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse col-md-4 justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="<%=url%>/View/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Combo Giảm Giá</a>
@@ -77,9 +77,9 @@
             <div class="  col-md-4 right ">
                 <a href="<%=url%>/View/card.jsp">
                     <i class="fas fa-shopping-cart align-middle  " style="margin-right: 3%;  font-size: 25px; color:blue">
-                        <span class="badge badge-secondary align-middle text-center px-1" style="color:red; background-color: #ff0000;color: #ffffff;font-size: 13px;  margin:auto">
+                        <p class="badge badge-secondary align-middle text-center px-1" style="color:red; background-color: #ff0000;color: #ffffff;font-size: 13px;  margin:auto">
                             ${cart_list.size()}
-                        </span>
+                        </p>
                     </i> 
                 </a>
 
