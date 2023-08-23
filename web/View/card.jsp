@@ -82,7 +82,7 @@
                                     </div>
                                 </form>
                             </td>
-                            <td class="col-md-2"><a href="remove-from-cart?id=1" class="btn btn-sm btn-danger">Remove</a></td>
+                            <td class="col-md-2"><a href="/TestWeb/RemoveCart?id=<%=c.getMaSanPham()%>" class="btn btn-sm btn-danger">Remove</a></td>
 
                         </tr>
 
@@ -98,8 +98,8 @@
 
 
 
-<!--        <footer class="bg-light text-center py-3">
-        </footer>-->
+        <!--        <footer class="bg-light text-center py-3">
+                </footer>-->
 
     </body>
 </html>
